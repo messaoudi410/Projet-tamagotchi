@@ -13,7 +13,7 @@ Ensuite il devient un "grand" avec une humeur variable
 Ses envies :
 - 😋 : faim, aléatoire minimum 30 sec et max 3 minutes
 - 🥱 : jouer, aléatoire minimum 30 sec et max 3 minutes
-- 💩 : caca, aléatoire minimum 30 sec et max 1.30 minutes après avoir mangé
+- 🚽 : toilette, aléatoire minimum 30 sec et max 1.30 minutes après avoir mangé
 */
 
 /* PHASE 0 : activer le tamastudi 
@@ -53,7 +53,14 @@ const start = () => {
     const nom = document.querySelector (".js-nom");
     nom.classList.remove("hidden");
     const character = document.querySelector(".js-character");
-    character.textContent = "🐣";
+    character.textContent = "";
+
+    var imageElement = document.createElement("img");
+    const charactert = document.querySelector(".js-character");
+    imageElement.src = "image/Dragon-anime 02.gif";
+    document.body.appendChild(imageElement);
+
+
     // 3) affiche mes vitals
     const vitals = document.querySelector(".js-vitals");
     vitals.classList.remove("hidden");
@@ -68,20 +75,44 @@ const start = () => {
     // 6) afficher les actions
     const actions = document.querySelector(".js-actions");
     actions.classList.remove("hidden");
+    // 7) Appel de la fonction pour le faire "evoluer"
+    evolue();
   };
   
   /* PHASE 2 : l'évolution de mon tama
   1) Attendre que notre tamaStudi ait une "première envie"
   2) Il devient grand
   */
+ const evolue = () => {
   setTimeout(() => {
-    console.log("1 seconde est passée");
+    
+  }, 5000);
+};
+
+/* LES ENVIES :
+Fonction pour gérer ses envies :
+- 😋 : faim, aléatoire minimum 30 sec et max 3 minutes
+- 🥱 : jouer, aléatoire minimum 30 sec et max 3 minutes
+- 🚽 : toilette, aléatoire minimum 30 sec et max 1.30 minutes après avoir mangé
+*/
+
+const wantsTo = () => {
+  const needs = ["😋", "🥱", "🚽"];
+  setTimeout(() => {
+    const randomIndexNeeds = getRandomInt(needs.length);
+    console.log(randomIndexNeeds);
   }, 1000);
-  
+};
+
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * max);
+}
+
+wantsTo();
+
   // Lance la fonction de "début de mon Tama"
   start();
   
 
 
 
-  
